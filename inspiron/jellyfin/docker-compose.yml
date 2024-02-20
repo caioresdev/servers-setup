@@ -1,0 +1,15 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/library:/config
+      - /path/to/tvseries:/data/tvshows
+      - /path/to/movies:/data/movies
+    ports:
+      - 8096:8096
+    restart: unless-stopped
